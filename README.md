@@ -37,10 +37,14 @@
 
 ``` php artisan migrate ```
 
-4 - Por fim, se quiser ver o app funcionando, rode:
+4 - Para fazer um link entre o que é público e o que está no servidor, rode:
+
+``` php artisan storage:link ```
+
+5 - Por fim, se quiser ver o app funcionando, rode:
 
 ``` php artisan serve ```
 
-5(Opcional, ainda não implementado) - Você pode querr obter certeza d que tudo está funcionando com deveria, ou pelo menos, a lógica, então rode:
+6(Opcional, ainda não implementado) - Você pode querr obter certeza d que tudo está funcionando com deveria, ou pelo menos, a lógica, então rode:
 
 ``` php artisan test ```
