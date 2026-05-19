@@ -41,6 +41,8 @@ new class extends Component
                 <th scope="col">Description</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -56,6 +58,8 @@ new class extends Component
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->quantity }} Unidades</td>
                     <td>R${{ number_format($product->price,2,",",".") }}</td>
+                    <td><a href="{{ route('edit_product',$product->id) }}" class="btn btn-primary"><i class="bi bi-pencil"></i></a></td>
+                    <td><a href="{{ route('delete_product',$product->id) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
                 </tr>
             @endforeach
 
@@ -64,7 +68,7 @@ new class extends Component
 
         <tfoot>
             <tr>
-                <td colspan="6">
+                <td colspan="8">
                     {{ $products->links() }}
                 </td>
             </tr>

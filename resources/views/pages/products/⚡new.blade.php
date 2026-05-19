@@ -91,7 +91,7 @@ new class extends Component
     </div>
     <div class="mb-3">
         <label for="form-label">Price:</label>
-        <input type="number" wire:model='price' step="0.01" value="0.00" class="form-control">
+        <input type="number" wire:model='price' step="0.01" value="0.01"  onkeydown="return false"  class="form-control">
         @error('price')
             <div class="alert alert-danger">
                 <p>{{ $message }}</p>
