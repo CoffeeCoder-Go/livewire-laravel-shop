@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 
 new class extends Component
-{
+{   
+    // Módulo do livewiree para trabalhar com file uploads
     use WithFileUploads;
 
     public $product;
@@ -26,8 +27,11 @@ new class extends Component
     }
 
     public function save(){
+        // Deleta o antigo
+        // fix: Tenha certeza de que a imageem exista
         Storage::delete('/storage/'.$this->product->image_url);
 
+        // Valida os campos.
         $this->validate([
             "name"=>"required|min:3|max:70|string",
             "description"=>"required|min:5|max:300",
@@ -36,8 +40,10 @@ new class extends Component
             "image"=>"required|image|max:1024"
         ]);
 
+        // Guarda de novo
         $path = $this->image->store('products','public');
 
+        // Atualiza
         $this->product->update([
             "name"=>$this->name,
             "description"=>$this->description,
@@ -46,6 +52,7 @@ new class extends Component
             "image_url"=>$path
         ]);
 
+        // Redireciona
         return redirect()->route('products');
     }
 };

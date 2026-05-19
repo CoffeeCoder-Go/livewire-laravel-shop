@@ -45,6 +45,6 @@
 
 ``` php artisan serve ```
 
-6(Opcional, ainda não implementado) - Você pode querr obter certeza d que tudo está funcionando com deveria, ou pelo menos, a lógica, então rode:
+6(Opcional, ainda não implementado) - Você pode quer obter certeza de que tudo está funcionando com deveria, ou pelo menos, a lógica, então rode:
 
 ``` php artisan test ```

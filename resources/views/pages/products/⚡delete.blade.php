@@ -5,16 +5,18 @@ use App\Models\Product;
 
 new class extends Component
 {
-    //
+    
     public $product;
 
-    public function mount(Product $product){
+    public function mount(Product $product){// Vem na URL
         $this->product = $product; 
     }
 
     public function delete(){
+        // O usuário aceitou, deleta
         $this->product->delete();
 
+        // Mensagem bonitinha
         redirect()->route('products')->with('delete','Deletado com sucesso!');
     }
 };
