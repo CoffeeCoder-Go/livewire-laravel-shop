@@ -18,9 +18,27 @@
                 <a href="{{ route('home') }}" class="navbar-brand">Laravel Shop</a>
 
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="{{ route('products') }}" class="nav-link">Products</a>
-                    </li>
+                    @auth
+                        <li class="nav-item">
+                            <a href="{{ route('products.products') }}" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{{ route('users.logout') }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-light">Logout</button>
+                            </form>
+
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a href="{{ route('users.login') }}" class="nav-link">Login</a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('users.signup') }}" class="nav-link">Signup</a>
+                        </li>
+                    @endauth
                 
                 </ul>
             </div>

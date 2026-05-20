@@ -27,7 +27,7 @@ new class extends Component
     <h1>Produtos</h1>
 
     <!-- Link para novo produto -->
-    <a href="{{ route('new_product') }}" class="btn btn-primary mb-3">Novo Produto</a>
+    <a href="{{ route('products.new_product') }}" class="btn btn-primary mb-3">Novo Produto</a>
     
     <!-- Campo que atualiza a todo tempo, famoso Live Search -->
     <input type="text" wire:model.live='search' placeholder="search..." class="form-control mb-3">
@@ -58,8 +58,8 @@ new class extends Component
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->quantity }} Unidades</td>
                     <td>R${{ number_format($product->price,2,",",".") }}</td>
-                    <td><a href="{{ route('edit_product',$product->id) }}" class="btn btn-primary"><i class="bi bi-pencil"></i></a></td>
-                    <td><a href="{{ route('delete_product',$product->id) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                    <td><a href="{{ route('products.edit_product',$product->id) }}" class="btn btn-primary"><i class="bi bi-pencil"></i></a></td>
+                    <td><a href="{{ route('products.delete_product',$product->id) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
                 </tr>
             @endforeach
 
