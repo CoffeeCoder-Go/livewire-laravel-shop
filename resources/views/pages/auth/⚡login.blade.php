@@ -26,13 +26,24 @@ new class extends Component
 ?>
 
 <form wire:submit.prevent='login'>
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <div class="mb-3">
         <label class="form-label">Name</label>
         <input type="text" wire:model='name' class="form-control">
+        @error('name')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
     </div>
     <div class="mb-3">
         <label class="form-label">Password</label>
         <input type="password" wire:model='password' class="form-control">
+        @error('password')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
     </div>
 
     <button type="submit" class="btn btn-primary">Login</button>
