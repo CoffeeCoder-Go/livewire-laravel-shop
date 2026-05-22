@@ -18,3 +18,8 @@ Route::middleware('auth')->prefix('products')->name('products.')->group(function
     Route::livewire("/{product}/delete","pages::products.delete")->name("delete_product");
 });
 
+
+Route::middleware('auth')->prefix('perfil')->name('perfil.')->group(function (){
+    Route::livewire("","pages::perfil.display")->name("perfil");
+    Route::livewire("/new","pages::perfil.new")->name("sign");
+});

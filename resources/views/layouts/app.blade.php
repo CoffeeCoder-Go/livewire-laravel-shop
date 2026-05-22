@@ -24,6 +24,9 @@
                             <a href="{{ route('products.products') }}" class="nav-link">Products</a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('perfil.perfil') }}" class="nav-link">Perfil</a>
+                        </li>
+                        <li class="nav-item">
                             <form action="{{ route('users.logout') }}" method="post">
                                 @csrf
                                 @method('DELETE')
