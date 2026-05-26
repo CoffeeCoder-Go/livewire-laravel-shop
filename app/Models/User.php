@@ -32,7 +32,7 @@ class User extends Authenticatable
         ];
     }
 
-    protected function perfils(): HasMany {
+    public function perfils(): HasMany {
         return $this->hasMany(Perfil::class);
     }
 
