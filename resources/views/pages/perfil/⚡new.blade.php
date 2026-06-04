@@ -39,7 +39,7 @@ new class extends Component
 
         $path = $this->foto->store("perfil","public");
 
-        auth()->user()->perfils()->create([
+        auth()->user()->perfil()->create([
             "nickname"=>$this->apelido,
             "birthday"=>$this->birthday,
             "type"=>$this->type,

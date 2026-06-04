@@ -27,6 +27,7 @@ new class extends Component
     }
 
     public function save(){
+        Gate::authorize("update",$this->product);
         // Deleta o antigo
         // fix: Tenha certeza de que a imageem exista
         Storage::delete('/storage/'.$this->product->image_url);
@@ -59,6 +60,9 @@ new class extends Component
 ?>
 
 
+
+
+@can("update",$product)
 <form wire:submit.prevent='save'>
     <div class="mb-3">
         <label class="form-label">Imagem</label>
@@ -117,5 +121,13 @@ new class extends Component
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>
-    <a href="{{ route('products') }}" class="btn btn-danger">Back</a>
+    <a href="{{ route('products.products') }}" class="btn btn-danger">Back</a>
 </form>
+
+@else
+
+<div class="container p-3 m-3">
+    <h2>Você não tem esse produto!</h2>
+</div>
+
+@endcan

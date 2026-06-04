@@ -18,6 +18,8 @@ return new class extends Migration
             $table->float("price",2)->nullable(false);
             $table->text("description")->nullable(false);
             $table->string("image_url")->nullable(false);
+            $table->unsignedBigInteger("user_id");
+            $table->foreign("user_id")->references("id")->on("perfil")->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

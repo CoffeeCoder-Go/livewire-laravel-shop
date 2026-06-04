@@ -3,13 +3,16 @@
 namespace App\Providers;
 
 use App\Models\Perfil;
+use App\Models\Product;
 use App\Policies\ManagerPolicy;
+use App\Policies\ProductPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
     protected $policies = [
-        Perfil::class=>ManagerPolicy::class
+        Perfil::class=>ManagerPolicy::class,
+        Product::class=>ProductPolicy::class
     ];
 
     /**

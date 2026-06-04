@@ -37,7 +37,7 @@ new class extends Component
 
         $path = $this->image->store('products','public');// Guarda dentro de products na pasta publica, retorna /products/{{ nome }} 
 
-        Product::create([
+        auth()->user()->products()->create([
             "name"=>$this->name,
             "description"=>$this->description,
             "image_url"=>$path,

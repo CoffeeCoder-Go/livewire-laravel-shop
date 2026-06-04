@@ -18,16 +18,17 @@ new class extends Component
         /** @var App\Models\User $user*/
         $user = auth()->user();
 
-        $this->perfil = $user?->perfils()->first();
+        $this->perfil = $user?->perfil()->first();
 
     }
 
     // Renderizador
     public function render(){
+        $user = auth()->user();
         // View list
         return view('pages.products.⚡list',[
             // Passa os produtos ordenados, pesquisados e paginados
-            'products' => Product::orderBy('name','ASC')->where("name","LIKE","%".$this->search."%")->cursorPaginate(5),
+            'products' => $user->products()->orderBy('name','ASC')->where("name","LIKE","%".$this->search."%")->cursorPaginate(5),
         ]);
     }
 };
