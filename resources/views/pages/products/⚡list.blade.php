@@ -18,7 +18,7 @@ new class extends Component
         /** @var App\Models\User $user*/
         $user = auth()->user();
 
-        $this->perfil = $user?->perfil()->first();
+        $this->perfil = $user?->perfil;
 
     }
 
